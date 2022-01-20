@@ -40,7 +40,7 @@ public class UserController{
 //	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
 //		boolean result = userService.loginCheck(user, session);
 //	}
-//작성중...
+//작성중....
 	
 	//회원목록
 	@RequestMapping(value= "/user/list")
