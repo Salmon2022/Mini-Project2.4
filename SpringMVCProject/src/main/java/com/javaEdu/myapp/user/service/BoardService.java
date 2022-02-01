@@ -22,8 +22,8 @@ public class BoardService implements IBoardService{
 		boardRepository.insertBoard(board);
 	}
 	@Override
-	public BoardVO readBoard(int boardnum) {
-		return boardRepository.readBoard(boardnum);
+	public BoardVO readBoard(int boardid) {
+		return boardRepository.readBoard(boardid);
 		
 	}
 	@Override
@@ -32,8 +32,8 @@ public class BoardService implements IBoardService{
 	}
 	
 	@Override
-	public void updateBoardhits(BoardVO board) {
-		boardRepository.updateBoardhits(board);
+	public void updateBoardhits(int boardid) {
+		boardRepository.updateBoardhits(boardid);
 	}
 	
 	@Override

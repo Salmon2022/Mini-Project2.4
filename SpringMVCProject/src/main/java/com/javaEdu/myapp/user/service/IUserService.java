@@ -16,7 +16,7 @@ public interface IUserService {
 	void updateUser(UserVO user);
 	void insertUser(UserVO user);
 	void deleteUser(UserVO user);
-	boolean loginCheck(UserVO user, HttpSession session);
+	int loginCheck(UserVO user, HttpSession session);
 	UserVO viewUser(UserVO user);
 	void logout(HttpSession session);
 	

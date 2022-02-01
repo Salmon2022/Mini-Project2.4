@@ -14,8 +14,11 @@ public class WordService implements IWordService {
 	@Autowired
 	IWordRepository wordRepository;
 	
+
+	
 	@Override
-	public List<WordVO> getWordList(){
-		return wordRepository.getWordList();
+	public List<WordVO> getcntWordList(int word_no){
+		return wordRepository.getcntWordList(word_no);
 	}
+	
 }

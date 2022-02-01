@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>로그인페이지</title>
-<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/base-static-files.jsp" %>
 
 <script>
 $(document).ready(function(){

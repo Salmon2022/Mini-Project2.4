@@ -7,7 +7,7 @@ import java.util.List;
 public class BoardVO {
 
 	private int board_id;
-	private int board_num;
+	private int board_type;
 	private String board_title;
 	private String board_comments;
 	private String board_contents;
@@ -21,11 +21,11 @@ public class BoardVO {
 	public void setBoard_id(int board_id) {
 		this.board_id = board_id;
 	}
-	public int getBoard_num() {
-		return board_num;
+	public int getBoard_type() {
+		return board_type;
 	}
-	public void setBoard_num(int board_num) {
-		this.board_num = board_num;
+	public void setBoard_type(int board_type) {
+		this.board_type = board_type;
 	}
 	public String getBoard_title() {
 		return board_title;
@@ -66,7 +66,7 @@ public class BoardVO {
 	
 	@Override
 	public String toString() {
-		return "BoardVO [board_id=" + board_id + ", board_num=" + board_num + ", board_title=" + board_title
+		return "BoardVO [board_id=" + board_id + ", board_type=" + board_type + ", board_title=" + board_title
 				+ ", board_comments=" + board_comments + ", board_contents=" + board_contents + ", board_writer=" + board_writer
 				+ ", board_date=" + board_date + ", board_hits=" + board_hits + "]";
 	}

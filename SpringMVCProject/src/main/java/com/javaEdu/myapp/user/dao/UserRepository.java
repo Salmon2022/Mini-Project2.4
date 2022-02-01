@@ -139,7 +139,8 @@ public class UserRepository implements IUserRepository {
 	}
 
 	@Override
-	public boolean loginCheck(UserVO user) {
+	public int loginCheck(UserVO user) {
+		
 		String user_id_from_client = user.getUser_id();
 		List<UserVO> user_list_from_db = this.getUserList();
 		for (int i =0; i<this.getUserList().size();i++) {
@@ -147,15 +148,24 @@ public class UserRepository implements IUserRepository {
 				UserVO query_result_from_db = this.getUserInfo(user_id_from_client);
 				String id_inside_uservo = query_result_from_db.getUser_id();
 				String pw_inside_uservo = query_result_from_db.getUser_password();
-				if(id_inside_uservo.equals(user.getUser_id()) && pw_inside_uservo.equals(user.getUser_password())) {	
-					return true;		
-				} else {
-					return false;
+				if(id_inside_uservo.equals("Master") && pw_inside_uservo.equals("master821")) {
+					return 0;
+				}else if(id_inside_uservo.equals(user.getUser_id()) && pw_inside_uservo.equals(user.getUser_password())) {	
+					return 1;		
+				} else if(!id_inside_uservo.equals(user.getUser_id()) && pw_inside_uservo.equals(user.getUser_password())) {
+					return 2;
+				} else if(id_inside_uservo.equals(user.getUser_id()) && !pw_inside_uservo.equals(user.getUser_password())) {
+					return 3;
+				} else if(!id_inside_uservo.equals(user.getUser_id()) && !pw_inside_uservo.equals(user.getUser_password())) {
+					return 4;
 				}
 			}
 		}
-		return false;
-	}
+		return 4;
+		
+			
+		}
+	
 
 	@Override
 	public UserVO viewUser(UserVO user) {

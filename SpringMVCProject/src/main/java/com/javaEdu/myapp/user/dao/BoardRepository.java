@@ -24,7 +24,7 @@ public class BoardRepository implements IBoardRepository{
 		public BoardVO mapRow(ResultSet rs, int count) throws SQLException{
 			BoardVO board = new BoardVO();
 			board.setBoard_id(rs.getInt("board_id"));
-			board.setBoard_num(rs.getInt("board_num"));
+			board.setBoard_type(rs.getInt("board_type"));
 			board.setBoard_title(rs.getString("board_title"));
 			board.setBoard_contents(rs.getString("board_contents"));
 			board.setBoard_comments(rs.getString("board_comments"));
@@ -39,13 +39,13 @@ public class BoardRepository implements IBoardRepository{
 	
 	@Override
 	public List<BoardVO> getBoardList1(){
-		String sql = "select * from board where board_id=1";
+		String sql = "select * from board where board_type=1";
 		return jdbcTemplate.query(sql, new RowMapper<BoardVO>() {
 			@Override
 			public BoardVO mapRow(ResultSet rs, int count) throws SQLException{
 				BoardVO board = new BoardVO();
 				board.setBoard_id(rs.getInt("board_id"));
-				board.setBoard_num(rs.getInt("board_num"));
+				board.setBoard_type(rs.getInt("board_type"));
 				board.setBoard_title(rs.getString("board_title"));
 				board.setBoard_comments(rs.getString("board_comments"));
 				board.setBoard_contents(rs.getString("board_contents"));
@@ -59,13 +59,13 @@ public class BoardRepository implements IBoardRepository{
 	
 	@Override
 	public List<BoardVO> getBoardList2(){
-		String sql = "select * from board where board_id=2";
+		String sql = "select * from board where board_type=2";
 		return jdbcTemplate.query(sql, new RowMapper<BoardVO>() {
 			@Override
 			public BoardVO mapRow(ResultSet rs, int count) throws SQLException{
 				BoardVO board = new BoardVO();
 				board.setBoard_id(rs.getInt("board_id"));
-				board.setBoard_num(rs.getInt("board_num"));
+				board.setBoard_type(rs.getInt("board_type"));
 				board.setBoard_title(rs.getString("board_title"));
 				board.setBoard_comments(rs.getString("board_comments"));
 				board.setBoard_contents(rs.getString("board_contents"));
@@ -79,39 +79,39 @@ public class BoardRepository implements IBoardRepository{
 
 	@Override
 	public int insertBoard(BoardVO board) {
-		String sql = "insert into board(board_id, board_num, board_title, board_contents, board_writer, board_date, board_hits)"
-				+"values(2,board_seq.nextval,?,?,?,sysdate,1)";
-		return jdbcTemplate.update(sql, board.getBoard_title(), board.getBoard_contents(), board.getBoard_writer());
+		String sql = "insert into board(board_id, board_type, board_title, board_contents, board_writer, board_date, board_hits)"
+				+"values(board_seq.nextval, ?, ?,?,?,sysdate,1)";
+		return jdbcTemplate.update(sql, board.getBoard_type(), board.getBoard_title(), board.getBoard_contents(), board.getBoard_writer());
 		
 	}
 	
 	@Override
-	public BoardVO readBoard(int boardnum) {
-		String sql ="select * from board where board_num=?";
-		return jdbcTemplate.queryForObject(sql, new BoardMapper(), boardnum);
+	public BoardVO readBoard(int boardid) {
+		String sql ="select * from board where board_id=?";
+		return jdbcTemplate.queryForObject(sql, new BoardMapper(), boardid);
 	}
 	
 	@Override
 	public int updateBoard(BoardVO board) {
-		String sql = "update board set board_title=?, board_contents=?, board_writer=?, board_date=?, board_hits=?"
-				+"where board_num=? and board_id=?";
-		return jdbcTemplate.update(sql,
+		String sql = "update board set board_title=?, board_contents=?, board_writer=?, board_date=?, board_hits=?, board_type=?"
+				+" where board_id=?";
+		return jdbcTemplate.update(sql, 
 				board.getBoard_title(),
 				board.getBoard_contents(),
 				board.getBoard_writer(),
-				board.getBoard_date(),
+				board.getBoard_date().substring(0, 10),
 				board.getBoard_hits(),
-				board.getBoard_num(),
+				board.getBoard_type(),
 				board.getBoard_id());
 				
 	}
 	
 	@Override
-	public int updateBoardhits(BoardVO board) {
+	public int updateBoardhits(int boardid) {
 		String sql = "update board set board_hits=board_hits+1"
-				+"where board_num=?";
+				+"where board_id=?";
 		return jdbcTemplate.update(sql,
-				board.getBoard_num()
+				boardid
 			);
 				
 	}
@@ -119,7 +119,7 @@ public class BoardRepository implements IBoardRepository{
 	@Override
 	public int deleteBoard(BoardVO board) {
 		String sql="delete board where board_num=? and boar_id=?";
-		return jdbcTemplate.update(sql, board.getBoard_num(), board.getBoard_id());
+		return jdbcTemplate.update(sql, board.getBoard_type(), board.getBoard_id());
 		
 	}
 	

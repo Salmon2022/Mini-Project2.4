@@ -17,7 +17,7 @@ public interface IUserRepository {
 	void insertUser(UserVO user);
 	void deleteUser(UserVO user);
   
-	boolean loginCheck(UserVO user);
+	int loginCheck(UserVO user);
 	UserVO viewUser(UserVO user);
   void logout(HttpSession session);
 

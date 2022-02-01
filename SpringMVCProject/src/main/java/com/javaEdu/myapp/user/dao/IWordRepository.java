@@ -8,6 +8,8 @@ public interface IWordRepository {
 
 	
 
-	List<WordVO> getWordList();
 
+	List<WordVO> getcntWordList(int word_no);
+
+	
 }

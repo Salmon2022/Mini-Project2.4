@@ -61,13 +61,20 @@ public class UserService implements IUserService {
 
 	 //회원 로그인 체크
 	 @Override
-	 public boolean loginCheck(UserVO user, HttpSession session) {
-		 boolean result = userRepository.loginCheck(user);
-		 if (result) {
+	 public int loginCheck(UserVO user, HttpSession session) {
+		 int result = userRepository.loginCheck(user);
+		 if(result==0){
 			 UserVO user2 = viewUser(user);
 			 
 			 session.setAttribute("userId", user2.getUser_id());
 			 session.setAttribute("userName", user2.getUser_name());
+ 		 
+		 }else if (result==1) {
+			 UserVO user2 = viewUser(user);
+			 
+			 session.setAttribute("userId", user2.getUser_id());
+			 session.setAttribute("userName", user2.getUser_name());
+			 
 		 }
 		 return result;
 	 }

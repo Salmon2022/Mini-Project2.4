@@ -34,7 +34,7 @@
 	<!-- list배열요소를 순서대로 반복해서 처리할수 있는 태그 -->
 	<c:forEach var="board" items="${boardList}">
 	<tr>
-		<td>${board.board_num}</td>
+		<td>${board.board_id}</td>
 		<td>${board.board_title}</td>
 		<td>${board.board_writer}</td>
 		<td>${board.board_date}</td>

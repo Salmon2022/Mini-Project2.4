@@ -37,24 +37,7 @@ public class UserController{
 	public String login() {
 		return "user/login";
 	}
-	
-	@RequestMapping("loginCheck.do")
-	public ModelAndView loginCheck(@ModelAttribute UserVO user, HttpSession session) {
-		System.out.println(user);
-		boolean result = userService.loginCheck(user, session);
-		ModelAndView mav = new ModelAndView();
-		if (result == true) {
-			mav.setViewName("user/usermain_afterlogin");
-			mav.addObject("msg", "success");
-
-		} else {
-			mav.setViewName("user/Alogin3");
-			mav.addObject("msg", "failure");
-		}
-		return mav;
-	}
-	
-	
+		
  
 	@RequestMapping("Alogin3")
 	public String login2() {
@@ -66,15 +49,25 @@ public class UserController{
 	@RequestMapping("loginCheck2.do")
 	public ModelAndView loginCheck2(@ModelAttribute UserVO user, HttpSession session) {
 		System.out.println(user);
-		boolean result = userService.loginCheck(user, session);
+		int result = userService.loginCheck(user, session);
 		ModelAndView mav = new ModelAndView();
-		if (result == true) {
+		if(result == 0){
 			mav.setViewName("user/usermain_afterlogin");
 			mav.addObject("msg", "success");
-
-		} else {
+			mav.addObject("msg2","admin");		
+		}else if (result == 1) {
+			mav.setViewName("user/usermain_afterlogin");
+			mav.addObject("msg", "success");
+		} else if(result ==2) {
 			mav.setViewName("user/Alogin3");
-			mav.addObject("msg", "failure");
+			mav.addObject("msg", "idfailure");
+		} else if(result ==3) {
+			mav.setViewName("user/Alogin3");
+			mav.addObject("msg", "pwfailure");
+		} else if(result ==4) {
+			mav.setViewName("user/Alogin3");
+			mav.addObject("msg", "nouser");
+			
 		}
 		return mav;
 	}
@@ -101,8 +94,14 @@ public class UserController{
 			return "user/usermain_afterlogin";
 	}
 	
+	@RequestMapping("usermain_afterlogin")
+	public String home2() {
+			return "user/usermain_afterlogin";
+	}
+	
+	
 	@RequestMapping("usermain_beforelogin")
-	public String home1() {
+	public String home3() {
 			return "user/usermain_beforelogin";
 	}
 	
@@ -119,7 +118,7 @@ public class UserController{
 	
 	@RequestMapping("user/delete.do")
 	public String userdelete(@ModelAttribute UserVO user) {
-		 userService.deleteUser(user);;
+		 userService.deleteUser(user);
 			return "user/Alogin3";
 	}
 	
