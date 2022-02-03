@@ -14,7 +14,7 @@
 <script>
 	$(document).ready(function() {
 		$("#write").on('click', function(event) {
-
+			var boardtype = $('#boardtype').val();
 			var date = $("#date").val();
 			var qnaWriter = $("#writer").val();
 			var qnaTitle = $("#title").val();
@@ -52,7 +52,9 @@
 			<div class="right">
 				<!-- form태그 -->
 				<form name="form1" method="post">
-
+					게시판유형:<input id="boardtype"
+				name="board_type" type="text" class="form-control"
+				placeholder="게시판유형 1: 공지사항 2: 1:1문의">
 					문의유형 :<br> <label class="radio-inline"> <input
 						type="radio" name="inlineRadioOptions" id="inlineRadio1"
 						value="option1"> 상품문의
@@ -69,7 +71,8 @@
 			
 			<br> <br> <br> 작성일 : <input id="date"
 				name="board_date" type="text" class="form-control"
-				placeholder="날짜를 입력하세요 YYYY-MM-DD"> 작성자 : <input id="writer"
+				placeholder="날짜를 입력하세요 YYYY-MM-DD"> 
+				작성자 : <input id="writer"
 				name="board_writer" type="text" class="form-control"
 				placeholder="이름을 입력하세요"> 제목:<input id="title"
 				name="board_title" type="text" class="form-control"

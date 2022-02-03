@@ -14,7 +14,7 @@
 //웹페이지를 모두 불러오면
 $(document).ready(function(){
 	$("#write").on('click', function(event){
-
+		var boardype = $('#boardtype').val();
 		var date = $("#date").val();
 		var qnaWriter = $("#writer").val();
 		var qnaTitle = $("#title").val();
@@ -49,7 +49,7 @@ $(document).ready(function(){
                 <div class="right">
                   <!-- form태그 -->
                    <form name="form1" method="post">
-   
+   						게시판유형 : <input id="boardtype" name="board_type" type="text" class="form-control" placeholder="게시판유형 1: 공지사항, 2: 1:1문의">
                         작성일 : <input id="date" name="board_date" type="text" class="form-control" placeholder="날짜를 입력하세요 YYYY-MM-DD">
                         작성자 : <input id="writer" name="board_writer" type="text" class="form-control" placeholder="이름을 입력하세요">
                         제목:<input id="title" name="board_title" type="text" class="form-control" placeholder="글제목을 입력하세요">
