@@ -1,0 +1,269 @@
+   @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@500&family=Roboto+Slab:wght@500&display=swap');
+
+
+
+        .half_background {
+            background: linear-gradient(to top, rgb(157, 216, 182) 40%, transparent 30%);
+        }
+
+        .half_background2 {
+            background: linear-gradient(to top, rgb(160, 223, 189) 0%, transparent 20%);
+        }
+
+        .header {
+            border: 1px solid;
+            height: 150px;
+
+        }
+
+        .logo {
+            text-align: center;
+            border-radius: 5px 5px 5px 5px;
+            height: 100px;
+        }
+
+        input[id='menuicon'] {
+            display: none;
+        }
+
+        input[id='menuicon']+label {
+            display: block;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            transition: all .35s;
+            cursor: pointer;
+            bottom: 38px;
+            left: 20px;
+        }
+
+        input[id='menuicon']+label span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            border-radius: 30px;
+            background: rgb(255, 255, 255);
+            transition: all .35s;
+        }
+
+        input[id='menuicon']+label span:nth-child(1) {
+            top: 0;
+        }
+
+        input[id='menuicon']+label span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input[id='menuicon']+label span:nth-child(3) {
+            bottom: 0;
+        }
+
+        input[id='menuicon']:checked+label {
+            z-index: 2;
+        }
+
+        input[id='menuicon']:checked+label span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg)
+        }
+
+        input[id='menuicon']:checked+label span:nth-child(2) {
+            opacity: 0;
+        }
+
+        input[id='menuicon']:checked+label span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg)
+        }
+
+        div[class='sidebar'] {
+            width: 300px;
+            height: 100%;
+            background: rgb(129, 199, 172);
+            position: fixed;
+            top: 0;
+            left: -300px;
+            z-index: 1;
+            transition: all .35s;
+            opacity: 80%;
+        }
+
+        input[id='menuicon']:checked+label+div {
+            left: 0;
+        }
+
+
+
+        h5 {
+            float: right;
+        }
+
+        h3 {
+            padding-bottom: 40px;
+            font-family: 'Do Hyeon', sans-serif;
+            font-weight: bold;
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: rgb(255, 254, 254)
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            text-align: center;
+
+        }
+
+        .btn {
+            float: right;
+        }
+
+        .nav {
+            text-align: center;
+            background-color: #3d5a5b;
+            border: 1px solid;
+            height: 50px;
+        }
+
+        h4 {
+            white-space: nowrap;
+        }
+
+
+        ul li {
+            list-style: none;
+        }
+
+        a.color1 {
+            text-decoration: none;
+            color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        a.color2 {
+            color: white;
+            font-size: 15px;
+
+        }
+
+        a:hover {
+            color: black;
+        }
+
+        #menu {
+            color: black;
+            text-align: center;
+        }
+
+        #menu>ul>li {
+            /* float:left; */
+            display: inline-block;
+            width: 140px;
+            position: relative;
+            font: bold 20px "malgun gothic";
+            top: 7px;
+        }
+
+        #menu>ul>li>ul {
+            width: 150px;
+            display: none;
+            position: absolute;
+            background: grey;
+            padding: 12px;
+        }
+
+        #menu>ul>li:hover>ul {
+            display: block;
+
+        }
+
+        #menu>ul>li>ul>li:hover {
+            background: rgb(128, 184, 44);
+            transition: ease 1s;
+        }
+
+
+
+
+        .section {
+            height: calc(100vh-300px);
+        }
+
+        .center {
+            text-align: center;
+            padding: 20px;
+        
+        }
+		
+		.out{
+		text-align: center;
+		border: 1px solid black;
+		}
+		
+		.in{
+		display: inline_block;
+		border: 1px solid red;
+		}
+		
+        .dropdown {
+            float:right;
+            
+            top: 100px;
+            display: inline-block;
+        }
+
+        .dropbtn_icon {
+            font-family: 'Material Icons';
+        }
+
+        .dropbtn {
+            border: 1px solid rgb(37, 37, 37);
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            font-weight: 400;
+            color: rgb(37, 37, 37);
+            padding: 12px;
+            width: 200px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            /*다른 요소들보다 앞에 배치*/
+            font-weight: 400;
+            background-color: #f9f9f9;
+            min-width: 200px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            text-decoration: none;
+            color: rgb(37, 37, 37);
+            font-size: 12px;
+            padding: 12px 20px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #d4d1d1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .footer {
+
+            height: 100px;
+        }
+
+        .copyright {
+            border: 1px solid;
+            height: 50px;
+            text-align: center;
+            padding: 10px;
+        }
