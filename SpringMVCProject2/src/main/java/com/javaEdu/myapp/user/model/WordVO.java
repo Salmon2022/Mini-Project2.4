@@ -3,13 +3,15 @@ package com.javaEdu.myapp.user.model;
 public class WordVO {
 private int word_no;
 private int word_cnt;
+private String word_list;
+
 public int getWord_cnt() {
 	return word_cnt;
 }
 public void setWord_cnt(int word_cnt) {
 	this.word_cnt = word_cnt;
 }
-private String word_list;
+
 public int getWord_no() {
 	return word_no;
 }

@@ -29,13 +29,14 @@
 		<ul>
 			<li><a class="color1" href="service1">분석개요</a></li>
 
-			<li><a class="color1" href="service2-1.html">분석서비스</a>
+			<li><a class="color1" href="service2-1">분석서비스</a>
 				<ul>
-					<li><a class="color2" href="service2-1.html">시계열분석 서비스</a></li>
-					<li><a class="color2" href="service2-2.html">상관분석 서비스</a></li>
-					<li><a class="color2" href="service2-3.html">비교분석 서비스1</a></li>
-					<li><a class="color2" href="service2-4.html">비교분석 서비스2</a></li>
-					<li><a class="color2" href="service2-5.html">비교분석 서비스3</a></li>
+					<li><a class="color2" href="service2-1">시계열분석 서비스</a></li>
+					<li><a class="color2" href="service2-2">상관분석 서비스</a></li>
+					<li><a class="color2" href="service2-3">추세선 서비스</a></li>
+					<li><a class="color2" href="service2-4">비교분석 서비스1</a></li>
+					<li><a class="color2" href="service2-5">비교분석 서비스2</a></li>
+					<li><a class="color2" href="service2-6">비교분석 서비스3</a></li>
 				</ul></li>
 			<li><a class="color1" href="service3">추천카테고리</a>
 				<ul>
